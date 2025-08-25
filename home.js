@@ -33,6 +33,12 @@ function togoleHandler(id){
     }
     document.getElementById(id).style.display = 'block';
 }
+function clearInputs(...ids){
+    ids.forEach(id => {
+        document.getElementById(id).value = '';
+    });
+}
+
 
 // togol button color stylw
 function toggolButton(id){
@@ -81,6 +87,8 @@ const data = {
 }
 transactionData.push(data)
 
+clearInputs('bank', 'account-number', 'add-amount', 'add-pin')
+
 })
 // cashout feature
 const pinAgent =1212
@@ -117,6 +125,8 @@ document.getElementById('withdraw-btn').addEventListener('click', function(e){
     date: new Date().toLocaleTimeString()
 }
 transactionData.push(data)
+
+ clearInputs('agent-number', 'withdraw-amount', 'add-pin-w')
 })
 // transfer feature
 
@@ -157,6 +167,8 @@ document.getElementById('send-btn').addEventListener('click', function(e){
     date: new Date().toLocaleTimeString()
 }
 transactionData.push(data)
+
+clearInputs('transfer-id', 'send-amount', 'add-pin-send');
 });
 
 // bonus feature
@@ -192,6 +204,7 @@ document.getElementById('bonus-get-btn').addEventListener('click', function(e){
     date: new Date().toLocaleTimeString()
 }
 transactionData.push(data)
+clearInputs('bonus-id');
 });
 // bill feature
 document.getElementById('pay-bill-btn').addEventListener('click', function(e){
@@ -236,6 +249,8 @@ document.getElementById('pay-bill-btn').addEventListener('click', function(e){
     date: new Date().toLocaleTimeString()
 }
 transactionData.push(data)
+clearInputs('bank-pay', 'pay-bill-number', 'pay-amount', 'pay-pin');
+
 });
 // show tramsaction 
 document.getElementById('transaction-button').addEventListener('click',function(){
